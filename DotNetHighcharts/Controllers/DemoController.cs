@@ -10,7 +10,7 @@
 
     using Point = DotNet.Highcharts.Options.Point;
 
-    public class DotNetHighChartsDemoController : Controller
+    public class DemoController : Controller
     {
         // GET: DotNetHighChartsDemo
         public ActionResult Index()

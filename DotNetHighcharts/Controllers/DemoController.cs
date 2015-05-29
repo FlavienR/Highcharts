@@ -1,13 +1,12 @@
-﻿using System.Drawing;
-using System.Web.Mvc;
-
-namespace DotNetHighcharts.Controllers
+﻿namespace DotNetHighcharts.Controllers
 {
+    using System.Drawing;
+    using System.Web.Mvc;
     using hc = DotNet.Highcharts;
 
     public class DemoController : Controller
     {
-        // GET: DotNetHighChartsDemo
+        // GET: Demo
         public ActionResult Index()
         {
             var pieChart = new hc.Highcharts("pieChart");

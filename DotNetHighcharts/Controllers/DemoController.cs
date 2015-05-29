@@ -5,7 +5,7 @@ namespace DotNetHighcharts.Controllers
 {
     using hc = DotNet.Highcharts;
 
-    public class DotNetHighChartsDemoController : Controller
+    public class DemoController : Controller
     {
         // GET: DotNetHighChartsDemo
         public ActionResult Index()

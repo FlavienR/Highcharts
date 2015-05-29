@@ -1,44 +1,60 @@
-﻿namespace DotNetHighcharts.Controllers
+﻿using System.Drawing;
+using System.Web.Mvc;
+
+namespace DotNetHighcharts.Controllers
 {
-    using System.Drawing;
-    using System.Web.Mvc;
-
-    using DotNet.Highcharts;
-    using DotNet.Highcharts.Enums;
-    using DotNet.Highcharts.Helpers;
-    using DotNet.Highcharts.Options;
-
-    using Point = DotNet.Highcharts.Options.Point;
+    using hc = DotNet.Highcharts;
 
     public class DotNetHighChartsDemoController : Controller
     {
         // GET: DotNetHighChartsDemo
         public ActionResult Index()
         {
-            Highcharts chart = new Highcharts("chart")
-                .InitChart(new Chart())
-                .SetTitle(new Title { Text = "Browser market shares, 2014" })
-               .SetSeries(new Series
-                {
-                    Type = ChartTypes.Pie,
-                    Data = new Data(new object[]
-                    {
-                        new object[] { "Firefox", 45.0 },
-                        new object[] { "IE", 26.8 },
-                        new Point
-                        {
-                            Name = "Chrome",
-                            Y = 12.8,
-                            Sliced = true,
-                            Color = Color.Red
-                        },
-                        new object[] { "Safari", 8.5 },
-                        new object[] { "Opera", 6.2 },
-                        new object[] { "Others", 0.7 }
-                    })
-                });
+            var pieChart = new hc.Highcharts("pieChart");
 
-            return View(chart);
+            pieChart.InitChart(new hc.Options.Chart());
+            pieChart.SetTitle(new hc.Options.Title {Text = "Browser market shares, 2014"});
+            pieChart.SetSeries(new hc.Options.Series
+            {
+                Type = hc.Enums.ChartTypes.Pie,
+                Data = new hc.Helpers.Data(new[]
+                {
+                    new hc.Options.Point
+                    {
+                        Name = "Firefox",
+                        Y = 45.0
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "IE",
+                        Y = 26.8
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Chrome",
+                        Y = 12.8,
+                        Sliced = true,
+                        Color = Color.Red
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Safari",
+                        Y = 8.5
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Opera",
+                        Y = 6.2
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Others",
+                        Y = 0.7
+                    }
+                })
+            });
+
+            return View(pieChart);
         }
     }
 }

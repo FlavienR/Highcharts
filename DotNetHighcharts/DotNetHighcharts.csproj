@@ -14,7 +14,7 @@
     <RootNamespace>DotNetHighcharts</RootNamespace>
     <AssemblyName>DotNetHighcharts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -104,12 +104,15 @@
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\data.src.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\export-csv.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\exporting.src.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\funnel.src.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\highcharts-export-clientside.js" />
+    <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\no-data-to-display.src.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\modules\solid-gauge.js" />
@@ -176,7 +179,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62847</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62847/</IISUrl>
+          <IISUrl>http://localhost/DotNetHighcharts/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

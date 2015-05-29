@@ -4,4 +4,5 @@
     ViewBag.Title = "Pie chart";
 }
 
-@(Model)
+@Model.ChartScriptHtmlString()
+@Model.ChartContainerHtmlString()

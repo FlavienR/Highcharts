@@ -54,3 +54,163 @@ $(function () {
  xAxis : {
             categories: ['Firefox', 'IE', 'Chrome', 'Safari', 'Opera', 'Others']
         },
+
+
+
+--------- MVC Chart 1 -------------
+
+            pieChart.SetTitle(new hc.Options.Title {Text = "Browser market shares, 2014"});
+            pieChart.SetSeries(new hc.Options.Series
+            {
+                Type = hc.Enums.ChartTypes.Pie,
+                Data = new hc.Helpers.Data(new[]
+                {
+                    new hc.Options.Point
+                    {
+                        Name = "Firefox",
+                        Y = 45.0
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "IE",
+                        Y = 26.8
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Chrome",
+                        Y = 12.8,
+                        Sliced = true,
+                        Color = Color.Red
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Safari",
+                        Y = 8.5
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Opera",
+                        Y = 6.2
+                    },
+                    new hc.Options.Point
+                    {
+                        Name = "Others",
+                        Y = 0.7
+                    }
+                })
+            });
+
+
+--------- MVC Chart 2 -------------
+
+Data = new hc.Helpers.Data(new object[]
+                {
+                    new
+                    {
+                        Name = "Firefox",
+                        Y = 45.0
+                    },
+                    new
+                    {
+                        Name = "IE",
+                        Y = 26.8
+                    },
+                    new
+                    {
+                        Name = "Chrome",
+                        Y = 12.8
+                    },
+                    new
+                    {
+                        Name = "Safari",
+                        Y = 8.5
+                    },
+                    new
+                    {
+                        Name = "Opera",
+                        Y = 6.2
+                    },
+                    new
+                    {
+                        Name = "Others",
+                        Y = 0.7
+                    }
+                })
+
+
+--------- MVC Chart 3 (tooltip) -------------
+
+
+
+                Data = new hc.Helpers.Data(new object[]
+                {
+                    new
+                    {
+                        Name = "Firefox",
+                        Y = 45.0,
+                        tooltip = 53242
+                    },
+                    new
+                    {
+                        Name = "IE",
+                        Y = 26.8,
+                        tooltip = 12000
+                    },
+                    new
+                    {
+                        Name = "Chrome",
+                        Y = 12.8,
+                        tooltip = 5000
+                    },
+                    new
+                    {
+                        Name = "Safari",
+                        Y = 8.5,
+                        tooltip = 2000
+                    },
+                    new
+                    {
+                        Name = "Opera",
+                        Y = 6.2,
+                        tooltip = 1600
+                    },
+                    new
+                    {
+                        Name = "Others",
+                        Y = 0.7,
+                        tooltip = 125
+                    }
+                })
+...
+
+            pieChart.SetTooltip(
+                new hc.Options.Tooltip
+                {
+                    PointFormat = "Number of visitor: {point.tooltip}"
+                });
+
+
+
+--------- MVC Chart 4 (dynamique) -------------
+
+pieChart.InitChart(new hc.Options.Chart
+            {
+                Events = new hc.Options.ChartEvents
+                {
+                    Load = "requestData"
+                }
+            });
+
+...
+
+pieChart.AddJavascripFunction("requestData", @"$.ajax({
+                url: 'http://dp-0153:88/JSONAPI/api/Json/',
+                success: function (data) {
+                    // Set the data
+                    pieChart.series[0].setData(data)
+            
+                    // Call it again after one second
+                    setTimeout(requestData, 1000); 
+                }
+            });");
+
